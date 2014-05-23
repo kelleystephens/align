@@ -2,25 +2,29 @@ extends ../shared/template
 
 block content
 
-  #existingaccount
+  div.col-md-6#existingaccount
     h2 Log In to Your Account
     form#login(action='/login', method='post')
-      label Email:
-        input.email(type='email', name='email', autofocus=true, placeholder='Email Address')
-      label Password:
-        input.password(type='password', name='password', placeholder='Password')
-      button#submit Log In!
+      .input-group
+        label.input-group-addon Email:
+        input.form-control.email(type='email', name='email', autofocus=true, placeholder='Email Address')
+      .input-group
+        label.input-group-addon Password:
+        input.form-control.password(type='password', name='password', placeholder='Password')
+      button.btn.btn-default#submit Log In!
 
 
-  #newaccount
+  div.col-md-6#newaccount
     h2 Register a New Account
     form#register(action='/create', method='post')
-      label Email:
-        input.email(type='email', name='email', autofocus=true, placeholder='Email Address')
-      label Password:
-        input.password(type='password', name='password', placeholder='Password')
-      select#type(name='type')
+      .input-group
+        label.input-group-addon Email:
+        input.form-control.email(type='email', name='email', autofocus=true, placeholder='Email Address')
+      .input-group
+        label.input-group-addon Password:
+        input.form-control.password(type='password', name='password', placeholder='Password')
+      select.form-control#type(name='type')
         option Select a User Type
         option Creator
         option Learner
-      button#submit Register!
+      button.btn.btn-default#submit Register!
