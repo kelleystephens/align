@@ -2,3 +2,8 @@ extends ../shared/template
 
 block content
   h1 Welcome #{user.email} - #{user.type}
+
+  form(action='/creators/dashboard', method='post')
+    input(type='text', name='title', autofocus=true, placeholder='Course Name')
+    input(type='text', name='description', placeholder='Course Description')
+    button Create Course
