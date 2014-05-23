@@ -15,12 +15,12 @@ exports.create = (req, res)=>{
     if(u){
       req.session.userId = u._id;  //sets cookie
       if(u.type === 'creator'){
-        res.render('creators/dashboard', {user:u, title: 'Dashboard'});
+        res.redirect('creators/dashboard');
       }else{
-        res.render('learners/dashboard', {user:u, title: 'Dashboard'});
+        res.redirect('learners/dashboard');
       }
     }else{  //means u returned null so was already registered
-      res.render('users/index', {title: 'User Registration/Login'});
+      res.redirect('/login');
     }
   });
 };
@@ -31,12 +31,12 @@ exports.login = (req, res)=>{
     if(u){
       req.session.userId = u._id;  //sets cookie
       if(u.type === 'creator'){
-        res.render('creators/dashboard', {user:u, title: 'Dashboard'});
+        res.redirect('creators/dashboard');
       }else{
-        res.render('learners/dashboard', {user:u, title: 'Dashboard'});
+        res.redirect('learners/dashboard');
       }
     }else{  //means u returned null so no user registered
-      res.render('users/index', {title: 'User Registration/Login'});
+      res.redirect('/login');
     }
   });
 };

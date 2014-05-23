@@ -2,6 +2,7 @@
 
 var users = global.nss.db.collection('users');
 var bcrypt = require('bcrypt');
+var Mongo = require('mongodb');
 
 class User{
   constructor(obj){
@@ -40,6 +41,13 @@ class User{
         fn(null);
       }
     });
+  }
+
+  static dashboard(userId, fn){
+    userId = Mongo.ObjectID(userId);
+    users.findOne({_id: userId}, (e, user)=>{
+        fn(user);
+      });
   }
 
 }
