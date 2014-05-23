@@ -1,9 +1,20 @@
 extends ../shared/template
 
 block content
+
+  #existingaccount
+    h2 Log In to Your Account
+    form#login(action='/login', method='post')
+      label Email:
+        input.email(type='email', name='email', autofocus=true, placeholder='Email Address')
+      label Password:
+        input.password(type='password', name='password', placeholder='Password')
+      button#submit Log In!
+
+
   #newaccount
     h2 Register a New Account
-    form#register(action='/login', method='post')
+    form#register(action='/create', method='post')
       label Email:
         input.email(type='email', name='email', autofocus=true, placeholder='Email Address')
       label Password:
