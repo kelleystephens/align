@@ -11,7 +11,7 @@ exports.index = (req, res)=>{
 exports.create = (req, res)=>{
   var user = new User(req.body);
   // is it User or user?
-  user.login(u=>{
+  user.create(u=>{
     if(u){
       req.session.userId = u._id;  //sets cookie
       if(u.type === 'creator'){
