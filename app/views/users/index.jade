@@ -1,0 +1,15 @@
+extends ../shared/template
+
+block content
+  #newaccount
+    h2 Register a New Account
+    form#register(action='/login', method='post')
+      label Email:
+        input.email(type='email', name='email', autofocus=true, placeholder='Email Address')
+      label Password:
+        input.password(type='password', name='password', placeholder='Password')
+      select#type(name='type')
+        option Select a User Type
+        option Creator
+        option Learner
+      button#submit Register!
