@@ -18,11 +18,6 @@ exports.create = (req, res)=>{
   course.save((c)=>res.redirect(`/creators/courses/${c._id}/content`));
 };
 
-// exports.index = (req, res)=>{
-//   var courseId = req.params.courseId;
-//   res.render('courses/index', {courseId:courseId});
-// };
-
 exports.test = (req, res)=>{
   var courseId = req.params.courseId;
   res.render('creators/test', {courseId:courseId});
