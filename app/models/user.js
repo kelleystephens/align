@@ -3,12 +3,25 @@
 var users = global.nss.db.collection('users');
 var bcrypt = require('bcrypt');
 var Mongo = require('mongodb');
+var _ = require('lodash');
 
 class User{
   constructor(obj){
     this.email = obj.email;
     this.password = obj.password;
     this.type = obj.type;
+    this.scores = [];
+  }
+
+  save(fn){
+    users.save(this, (e,u)=>fn(u));
+  }
+
+  addScore(score, courseId, fn){
+    var scores = this.scores;
+    scores.push({courseId:courseId, score:score});
+    // this.save((u)=>console.log(u));
+    fn(this);
   }
 
   create(fn){
@@ -40,8 +53,9 @@ class User{
   static findById(userId, fn){
     userId = Mongo.ObjectID(userId);
     users.findOne({_id: userId}, (e, user)=>{
+        user = _.create(User.prototype, user);
         fn(user);
-      });
+    });
   }
 
 }

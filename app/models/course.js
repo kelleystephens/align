@@ -18,6 +18,20 @@ class Course{
     courses.save(this, (e,c)=>fn(c));
   }
 
+  findScore(learnerAnswers, fn){
+    var test = this.test;
+    var total = test.length;
+    var totalCorrect = 0;
+    test.forEach((a, i)=>{
+      var correct = a.correct;
+      if(correct === learnerAnswers[i]){
+        totalCorrect++;
+      }
+    });
+    var score = (totalCorrect/total) * 100;
+    fn(score);
+  }
+
   static findByCourseId(courseId, fn){
     courseId = Mongo.ObjectID(courseId);
     courses.findOne({_id:courseId}, (e,course)=>{

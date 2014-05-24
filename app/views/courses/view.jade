@@ -1,7 +1,32 @@
 extends ../shared/template
 
 block content
-  h1 Course Name
-  h2 Course Description
+  h1 Test
 
-  
+  form(action='/learners/courses/#{courseId}/test', method='post')
+    select(name='answer')
+      option a
+      option b
+      option c
+      option d
+    select(name='answer')
+      option a
+      option b
+      option c
+      option d
+    select(name='answer')
+      option a
+      option b
+      option c
+      option d
+    select(name='answer')
+      option a
+      option b
+      option c
+      option d
+    select(name='answer')
+      option a
+      option b
+      option c
+      option d
+    button Submit

@@ -4,13 +4,25 @@ var traceur = require('traceur');
 var Course = traceur.require(__dirname + '/../models/course.js');
 var Test = traceur.require(__dirname + '/../models/test.js');
 var Content = traceur.require(__dirname + '/../models/content.js');
+var User = traceur.require(__dirname + '/../models/user.js');
 
 exports.scoreTest = (req, res)=>{
-
+  var courseId = req.params.courseId;
+  var learnerAnswers = req.body.answer;
+  Course.findByCourseId(courseId, course=>{
+    course.findScore(learnerAnswers, score=>{
+      User.findById(req.session.userId, user=>{
+        user.addScore(score, courseId, (user)=>{
+          user.save((u)=>res.redirect('/learners/dashboard'));
+        });
+      });
+    });
+  });
 };
 
 exports.displayTest = (req, res)=>{
-
+  var courseId = req.params.courseId;
+  res.render('courses/view', {courseId:courseId});
 };
 
 exports.displayContent = (req, res)=>{
