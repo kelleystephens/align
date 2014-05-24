@@ -8,6 +8,7 @@ class Course{
     this.title = obj.title;
     this.description = obj.description;
     this.creatorId = creatorId;
+    this.test = [];
   }
 
   save(fn){
@@ -20,6 +21,8 @@ class Course{
         fn(course);
       });
   }
+
+
 
 }
 
