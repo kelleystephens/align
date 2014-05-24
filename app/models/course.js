@@ -2,6 +2,8 @@
 
 var courses = global.nss.db.collection('courses');
 var Mongo = require('mongodb');
+var _ = require('lodash');
+
 
 class Course{
   constructor(obj, creatorId){
@@ -9,6 +11,7 @@ class Course{
     this.description = obj.description;
     this.creatorId = creatorId;
     this.test = [];
+    this.content = [];
   }
 
   save(fn){
@@ -17,8 +20,9 @@ class Course{
 
   static findByCourseId(courseId, fn){
     courseId = Mongo.ObjectID(courseId);
-    courses.findOne({_id:courseId}, (e,c)=>{
-      fn(c);
+    courses.findOne({_id:courseId}, (e,course)=>{
+      course = _.create(Course.prototype, course);
+      fn(course);
     });
   }
 

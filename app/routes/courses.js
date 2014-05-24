@@ -3,36 +3,45 @@
 var traceur = require('traceur');
 var Course = traceur.require(__dirname + '/../models/course.js');
 var Test = traceur.require(__dirname + '/../models/test.js');
+var Content = traceur.require(__dirname + '/../models/content.js');
 
 
 exports.content = (req, res)=>{
   var courseId = req.params.courseId;
   Course.findByCourseId(courseId, course=>{
-    res.render('courses/content', {course:course});
+    res.render('creators/content', {course:course});
   });
 };
 
 exports.create = (req, res)=>{
   var course = new Course(req.body, req.session.userId);
-  course.save((c)=>res.redirect(`/creators/courses/${c._id}`));
+  course.save((c)=>res.redirect(`/creators/courses/${c._id}/content`));
 };
 
-exports.index = (req, res)=>{
-  var courseId = req.params.courseId;
-  res.render('courses/index', {courseId:courseId});
-};
+// exports.index = (req, res)=>{
+//   var courseId = req.params.courseId;
+//   res.render('courses/index', {courseId:courseId});
+// };
 
 exports.test = (req, res)=>{
   var courseId = req.params.courseId;
-  res.render('courses/test', {courseId:courseId});
+  res.render('creators/test', {courseId:courseId});
 };
 
+exports.createContent = (req, res)=>{
+  var courseId = req.params.courseId;
+  Content.create(req.body, content=>{
+    Course.findByCourseId(courseId, (c)=>{
+      c.content = content;
+      c.save((c)=>res.redirect(`/creators/courses/${courseId}/test`));
+    });
+  });
+};
 
 exports.createTest = (req, res)=>{
-  var course = req.params.courseId;
+  var courseId = req.params.courseId;
   Test.create(req.body, test=>{
-    console.log(test);
-    Course.findById(course, (c)=>{
+    Course.findByCourseId(courseId, (c)=>{
       c.test = test;
       c.save((c)=>res.redirect(`/creators/dashboard`));
     });
