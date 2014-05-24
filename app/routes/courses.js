@@ -5,6 +5,17 @@ var Course = traceur.require(__dirname + '/../models/course.js');
 var Test = traceur.require(__dirname + '/../models/test.js');
 var Content = traceur.require(__dirname + '/../models/content.js');
 
+exports.scoreTest = (req, res)=>{
+
+};
+
+exports.displayTest = (req, res)=>{
+
+};
+
+exports.displayContent = (req, res)=>{
+
+};
 
 exports.content = (req, res)=>{
   var courseId = req.params.courseId;
