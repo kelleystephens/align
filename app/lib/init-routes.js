@@ -30,9 +30,9 @@ function load(app, fn){
   app.post('/creators/dashboard', dbg, courses.create);
   app.get('/creators/courses/:courseId', dbg, courses.index);
   app.get('/creators/courses/:courseId/content', dbg, courses.content);
-  app.post('/creators/courses/:courseId/content', dbg, courses.createContent)
+  app.post('/creators/courses/:courseId/content', dbg, courses.createContent);
   app.get('/creators/courses/:courseId/test', dbg, courses.test);
-  app.post('/creators/courses/:courseId/test', dbg, courses.createTest)
+  app.post('/creators/courses/:courseId/test', dbg, courses.createTest);
 
   console.log('Routes Loaded');
   fn();

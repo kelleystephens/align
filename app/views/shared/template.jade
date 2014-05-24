@@ -2,7 +2,12 @@ doctype html
 html
   head
     meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     title= title
+    link(href='/jquery-ui/css/no-theme/jquery-ui-1.10.4.custom.css', rel='stylesheet')
+    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/jquery-ui/css/no-theme/jquery-ui.custom.css', rel='stylesheet')
     link(href='/css/normalize.css', rel='stylesheet')
     link(href='/css/buttons.css', rel='stylesheet')
     link(href='/less/app.css', rel='stylesheet')
@@ -16,7 +21,7 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href="/") Study Buddy
+          a.navbar-brand(href='/') Study Buddy
         div.collapse.navbar-collapse#bs-example-navbar-collapse-1
           ul.nav.navbar-nav
             li.active
@@ -24,7 +29,11 @@ html
 
     block content
 
+
     script(src='/js/vendor/jquery-2.1.1.js')
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src='/jquery-ui/js/jquery-ui-1.10.4.custom.js')
+    script(src='/js/vendor/jquery.flip.js')
     script(src='/js/vendor/lodash-2.4.1.js')
     script(src='/js/vendor/moment-2.6.0.js')
     script(src='/js/vendor/buttons.js')
