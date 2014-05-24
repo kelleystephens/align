@@ -17,7 +17,7 @@
 
   function addCard()
   {
-    var card = $('#content > .content-item');
+    var card = $('#content > .content-item:last-child');
     $('#content').append(card.clone());
   }
 
