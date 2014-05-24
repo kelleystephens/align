@@ -1,0 +1,21 @@
+extends ../shared/template
+
+block content
+
+  h1= course.title
+  h2= course.description
+
+  button.add-content Add Card
+  button.submit-content Submit Course Content
+
+  #content
+    .content-item(style='display: block;')
+      .front(style='display: inline-block;')
+        Label Question:
+        textarea(name='question', style='width: 200px; height: 100px;', placeholder='What is JavaScript?')
+      .back(style='display: inline-block;')
+        Label Answer:
+        textarea(name='answer', style='width: 200px; height: 100px;', placeholder='An object-oriented computer programming language...')
+
+block scripts
+  script(src='/js/es6/compiled/createcontent.js')
