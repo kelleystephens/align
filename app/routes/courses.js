@@ -2,11 +2,12 @@
 
 var traceur = require('traceur');
 var Course = traceur.require(__dirname + '/../models/course.js');
+var Test = traceur.require(__dirname + '/../models/test.js');
+
 
 exports.content = (req, res)=>{
   var courseId = req.params.courseId;
   Course.findByCourseId(courseId, course=>{
-    //console.log(course);
     res.render('courses/content', {course:course});
   });
 };
@@ -18,6 +19,22 @@ exports.create = (req, res)=>{
 
 exports.index = (req, res)=>{
   var courseId = req.params.courseId;
-  console.log(courseId);
   res.render('courses/index', {courseId:courseId});
+};
+
+exports.test = (req, res)=>{
+  var courseId = req.params.courseId;
+  res.render('courses/test', {courseId:courseId});
+};
+
+
+exports.createTest = (req, res)=>{
+  var course = req.params.courseId;
+  Test.create(req.body, test=>{
+    console.log(test);
+    Course.findById(course, (c)=>{
+      c.test = test;
+      c.save((c)=>res.redirect(`/creators/dashboard`));
+    });
+  });
 };
