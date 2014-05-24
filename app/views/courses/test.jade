@@ -1,0 +1,27 @@
+extends ../shared/template
+
+block content
+  h1= title
+
+  div
+    button#add Add Question
+
+  form#test(action='/creators/courses/#{courseId}/test', method='POST')
+    button#save Save Test
+    div.question
+      input.q(type='textarea', name='q', placeholder='Question')
+      input(type='radio', name='correct[1]')
+      input.a(type='text', name='a', placeholder='Answer')
+      input(type='radio', name='correct[1]')
+      input.b(type='text', name='b', placeholder='Answer')
+      input(type='radio', name='correct[1]')
+      input.c(type='text', name='c', placeholder='Answer')
+      input(type='radio', name='correct[1]')
+      input.d(type='text', name='d', placeholder='Answer')
+
+      a.nuke(href='#') x
+
+
+
+block scripts
+  script(src='/js/es6/compiled/createtest.js')

@@ -10,6 +10,15 @@ exports.create = (req, res)=>{
 
 exports.index = (req, res)=>{
   var courseId = req.params.courseId;
-  console.log(courseId);
   res.render('courses/index', {courseId:courseId});
+};
+
+exports.test = (req, res)=>{
+  // var courseId = req.params.courseId;
+  res.render('courses/test');
+};
+
+exports.createTest = (req, res)=>{
+  // var courseId = req.params.courseId;
+  res.render('courses/test');
 };
