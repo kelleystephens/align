@@ -4,7 +4,7 @@ var traceur = require('traceur');
 var User = traceur.require(__dirname + '/../models/user.js');
 
 exports.dashboard = (req, res)=>{
-  User.dashboard(req.session.userId, user => {
+  User.findById(req.session.userId, user => {
     res.render('creators/dashboard', {user: user, title: 'Dashboard'});
   });
 };
