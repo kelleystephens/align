@@ -14,10 +14,8 @@ class User{
   create(fn){
     users.findOne({email: this.email}, (e, u)=>{
       if(u){
-        console.log('Found user, already registered.');
         fn(null);
       }else{
-        console.log('Saving user to database.');
         this.password = bcrypt.hashSync(this.password, 8);
         users.save(this, (e, u)=>fn(u));
       }
@@ -27,23 +25,19 @@ class User{
   login(fn){
     users.findOne({email: this.email}, (e, u)=>{
       if(u){
-        console.log('Found user!');
         var isMatch = bcrypt.compareSync(this.password, u.password);
         if(isMatch){
-          console.log('Found user, password correct.');
           fn(u);
         } else {
-          console.log('User exists, but wrong password.');
           fn(null);
         }
       } else {
-        console.log('This user does not exist.');
         fn(null);
       }
     });
   }
 
-  static dashboard(userId, fn){
+  static findById(userId, fn){
     userId = Mongo.ObjectID(userId);
     users.findOne({_id: userId}, (e, user)=>{
         fn(user);
