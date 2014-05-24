@@ -5,19 +5,20 @@
 
   function init(){
     $('.add-content').click(addCard);
-    $('.submit-content').click(submitContent);
+    $('form#content').on('click', '.delete', deleteCard);
   }
 
-  function addCard(e)
-  {
+  function deleteCard(e){
+    if($('form#content > .content-item').length > 1){
+      $(this).parent().remove();
+    }
     e.preventDefault();
+  }
+
+  function addCard()
+  {
     var card = $('#content > .content-item');
     $('#content').append(card.clone());
-  }
-
-  function submitContent(e)
-  {
-    e.preventDefault();
   }
 
 

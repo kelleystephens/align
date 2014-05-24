@@ -1,14 +1,13 @@
 extends ../shared/template
 
 block content
-
   h1= course.title
   h2= course.description
 
   button.add-content Add Card
-  button.submit-content Submit Course Content
 
-  #content
+  form#content(action='/creators/courses/#{course._id}/content', method='post')
+    button.submit-content Submit Course Content
     .content-item(style='display: block;')
       .front(style='display: inline-block;')
         Label Question:
@@ -16,6 +15,9 @@ block content
       .back(style='display: inline-block;')
         Label Answer:
         textarea(name='answer', style='width: 200px; height: 100px;', placeholder='An object-oriented computer programming language...')
+      button.delete(style='display: inline-block;') X
+
+
 
 block scripts
   script(src='/js/es6/compiled/createcontent.js')
