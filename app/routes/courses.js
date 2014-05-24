@@ -15,6 +15,17 @@ exports.index = (req, res)=>{
   res.render('courses/index', {courseId:courseId});
 };
 
+exports.learnerindex = (req, res)=>{
+  Course.findAll(courses=>{
+    res.render('courses/learnerindex', {courses:courses});
+  });
+};
+
+exports.view = (req, res)=>{
+  var courseId = req.params.courseId;
+  res.render('courses/view', {courseId:courseId});
+};
+
 exports.test = (req, res)=>{
   var courseId = req.params.courseId;
   res.render('courses/test', {courseId:courseId});
@@ -23,7 +34,6 @@ exports.test = (req, res)=>{
 exports.createTest = (req, res)=>{
   var course = req.params.courseId;
   Test.create(req.body, test=>{
-    console.log(test);
     Course.findById(course, (c)=>{
       c.test = test;
       c.save((c)=>res.redirect(`/creators/dashboard`));

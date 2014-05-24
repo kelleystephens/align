@@ -24,7 +24,12 @@ class Course{
       });
   }
 
-
+    static findAll(fn){
+    courses.find().toArray((e, objs)=>{
+      var material = objs.map(o=>_.create(Course.prototype, o));
+      fn(material);
+    });
+  }
 
 }
 

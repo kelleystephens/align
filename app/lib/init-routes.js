@@ -27,6 +27,7 @@ function load(app, fn){
   app.post('/login', dbg, users.login);
   app.get('/creators/dashboard', dbg, creators.dashboard);
   app.get('/learners/dashboard', dbg, learners.dashboard);
+  app.get('/learners/courses/:courseId', dbg, courses.view);
   app.post('/creators/dashboard', dbg, courses.create);
   app.get('/creators/courses/:courseId', dbg, courses.index);
   // app.get('/creators/courses/:courseId/content', dbg, courses.content);
