@@ -4,7 +4,14 @@ h2{
 
 #newaccount, #existingaccount{
   border: 1px solid black;
+  border-radius: 10px;
   height: 300px;
+  button{
+    margin: 25px 25px 25px 0px;
+  }
+  select{
+    margin: 0px 25px 25px 0px;
+  }
 }
 
 label, select, button{
@@ -36,5 +43,36 @@ label, select, button{
 #flipbox :hover {
   h2{
     text-shadow: 2px 2px black;
+  }
+}
+
+#teacherDashboard, #createContent, #testQuestion {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  button{
+    margin: 25px 25px 25px 0px;
+  }
+}
+
+#createContent {
+  text-align: center;
+  button, textarea {
+    display: inline-block;
+  }
+  .content-item {
+    border: 1px solid black;
+  }
+}
+
+#testQuestion {
+  width: 80%;
+  border: 1px dashed black;
+  text-align: center;
+  input {
+    width: 50%;
+  }
+  select {
+    margin: 0px 25px 0px 0px;
   }
 }
