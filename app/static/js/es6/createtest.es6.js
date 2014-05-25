@@ -24,7 +24,6 @@
     $('.b').last().val('');
     $('.c').last().val('');
     $('.d').last().val('');
-
   }
 
   function deleteQ(e){
