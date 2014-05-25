@@ -34,6 +34,13 @@ class Course{
     fn(score);
   }
 
+  static findByCreatorId(creatorId, fn){
+    courses.find({creatorId:creatorId}).toArray((e, objs)=>{
+      var courses = objs.map(o=>_.create(Course.prototype, o));
+      fn(courses);
+    });
+  }
+
   static findByCourseId(courseId, fn){
     courseId = Mongo.ObjectID(courseId);
     courses.findOne({_id:courseId}, (e,course)=>{

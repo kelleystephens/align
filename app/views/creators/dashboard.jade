@@ -7,3 +7,15 @@ block content
     input(type='text', name='title', autofocus=true, placeholder='Course Name')
     input(type='text', name='description', placeholder='Course Description')
     button Create Course
+
+  h3 Your Courses
+  table#userscourses
+    thead
+      th Course Name
+      th Course Description
+    tbody
+      each course in courses
+        tr
+          td(data-id=course._id.toString())= course.title
+          td #{course.description}
+          
