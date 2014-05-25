@@ -22,7 +22,10 @@ exports.scoreTest = (req, res)=>{
 
 exports.displayTest = (req, res)=>{
   var courseId = req.params.courseId;
-  res.render('courses/view', {courseId:courseId});
+  Course.findByCourseId(courseId, course=>{
+    var questions = course.test;
+    res.render('learners/test', {courseId:courseId, questions:questions});
+  });
 };
 
 exports.displayContent = (req, res)=>{

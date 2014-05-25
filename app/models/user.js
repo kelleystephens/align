@@ -20,7 +20,6 @@ class User{
   addScore(score, courseId, fn){
     var scores = this.scores;
     scores.push({courseId:courseId, score:score});
-    // this.save((u)=>console.log(u));
     fn(this);
   }
 

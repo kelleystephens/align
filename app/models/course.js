@@ -19,11 +19,13 @@ class Course{
   }
 
   findScore(learnerAnswers, fn){
-    var test = this.test;
+    learnerAnswers = _([learnerAnswers]).flatten().value();
+    var test = _([this.test]).flatten().value();
     var total = test.length;
     var totalCorrect = 0;
     test.forEach((a, i)=>{
       var correct = a.correct;
+
       if(correct === learnerAnswers[i]){
         totalCorrect++;
       }

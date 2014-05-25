@@ -14,7 +14,6 @@ class Test{
     var test = questions.map((v,i)=>new Object({q:questions[i], a:a[i], b:b[i], c:c[i], d:d[i], correct:correct[i]}));
     fn(test);
   }
-
 }
 
 module.exports = Test;
