@@ -14,7 +14,12 @@ exports.displayTest = (req, res)=>{
 };
 
 exports.displayContent = (req, res)=>{
-
+  var courseId = req.params.courseId;
+  Course.findByCourseId(courseId, course=>{
+    var courseContent = course.content;
+    var count = course.content.length;
+    res.render('learners/content', {course:course, courseContents:courseContent, count:count});
+  });
 };
 
 exports.content = (req, res)=>{
