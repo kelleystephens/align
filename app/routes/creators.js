@@ -2,9 +2,13 @@
 
 var traceur = require('traceur');
 var User = traceur.require(__dirname + '/../models/user.js');
+var Course = traceur.require(__dirname + '/../models/course.js');
 
 exports.dashboard = (req, res)=>{
   User.findById(req.session.userId, user => {
-    res.render('creators/dashboard', {user: user, title: 'Dashboard'});
+    Course.findByCreatorId(req.session.userId, courses =>{
+      res.render('creators/dashboard', {user:user, courses:courses, ctitle: 'Dashboard'});
+    });
+
   });
 };
