@@ -1,11 +1,16 @@
 extends ../shared/template
 
 block content
-  h1 Welcome #{user.email} - #{user.type}
+  .jumbotron#teacherDashboard
+    h1.text-center Welcome #{user.email} - #{user.type}
 
   form(action='/creators/dashboard', method='post')
-    input(type='text', name='title', autofocus=true, placeholder='Course Name')
-    input(type='text', name='description', placeholder='Course Description')
+    .input-group
+      label.input-group-addon Course Name
+      input.form-control(type='text', name='title', autofocus=true)
+    .input-group
+      label.input-group-addon Course Description
+      input.form-control(type='text', name='description', placeholder='Course Description')
     button Create Course
 
   h3 Your Courses
@@ -18,4 +23,3 @@ block content
         tr
           td(data-id=course._id.toString())= course.title
           td #{course.description}
-          
