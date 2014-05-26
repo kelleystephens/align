@@ -4,12 +4,12 @@ block content
 
   h1 Welcome #{user.email} - #{user.type}
 
-  table
+  table#courses
     thead
       th Course Name
       th Course Description
       th Course Content
-      th Course Test
+      th Test Score
     tbody
       each course in courses
         tr
@@ -17,5 +17,16 @@ block content
           td #{course.description}
           td
             a(href='/learners/courses/#{course._id}/content') View Content
-          td
-            a(href='/learners/courses/#{course._id}/test') View Test
+          td #{course.score}
+
+
+  //- table#scores
+  //-   thead
+  //-     th Course Name
+  //-     //- th Date Taken
+  //-     th Test Score
+  //-   tbody
+  //-     each score in scores
+  //-       tr
+  //-         td(data-id=score.courseId.toString())= score.title
+  //-         td #{score.score}

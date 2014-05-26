@@ -19,6 +19,7 @@ class User{
 
   addScore(score, courseId, fn){
     var scores = this.scores;
+    courseId = Mongo.ObjectID(courseId);
     scores.push({courseId:courseId, score:score});
     fn(this);
   }
@@ -52,8 +53,8 @@ class User{
   static findById(userId, fn){
     userId = Mongo.ObjectID(userId);
     users.findOne({_id: userId}, (e, user)=>{
-        user = _.create(User.prototype, user);
-        fn(user);
+      user = _.create(User.prototype, user);
+      fn(user);
     });
   }
 
