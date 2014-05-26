@@ -1,3 +1,10 @@
+/* exported ajax */
+
+function ajax(url, type, data={}, success=r=>console.log(r), dataType='html'){
+  'use strict';
+  $.ajax({url:url, type:type, dataType:dataType, data:data, success:success});
+}
+
 (function(){
   'use strict';
 
@@ -21,12 +28,10 @@
   }
 
   function flip () {
-
     var clicked = $('.flipbox').hasClass('clicked');
     if (clicked){
       $('.flipbox').revertFlip({
         direction:'lr',
-        color: '#8aaeb5'
       });
     }else{
       $('.flipbox').flip({

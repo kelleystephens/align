@@ -13,13 +13,17 @@ block content
         input.form-control(type='text', name='description', placeholder='Course Description')
       button.btn.btn-primary.btn-lg.btn-block Create Course
 
-    h3 Your Courses
-    table.table#userscourses
-      thead
-        th Course Name
-        th Course Description
-      tbody
-        each course in courses
-          tr.table-striped
-            td(data-id=course._id.toString())= course.title
-            td #{course.description}
+  h3 Your Courses
+  table.table#userscourses
+    thead
+      th Course Name
+      th Course Description
+    tbody
+      each course in courses
+        tr.table-striped
+          td(data-id=course._id.toString())= course.title
+          td #{course.description}
+          td
+            a(href='/creators/courses/#{course._id}/content/edit') Edit Content
+          td
+            a(href='/creators/courses/#{course._id}/test/edit') Edit Test
