@@ -49,7 +49,8 @@ class Course{
   }
 
   get isRetestAvailable(){
-    var tookTest = _.any(this, 'score');
+    var course = this;
+    var tookTest = (this.score <= 0) ? true : false;
     return this.score < 70 && tookTest;
   }
 

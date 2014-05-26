@@ -21,14 +21,9 @@ class Test{
     courses = _([courses]).flatten().value();
     courses.forEach((c, i)=>{
       var index = _.find(userScores, {courseId: c._id});
-
       if(index){
         c.score = index.score;
       }
-
-      // else {
-      //   c.score = null;
-      // }
     });
 
     fn(courses);

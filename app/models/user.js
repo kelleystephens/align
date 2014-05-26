@@ -20,7 +20,12 @@ class User{
   addScore(score, courseId, fn){
     var scores = this.scores;
     courseId = Mongo.ObjectID(courseId);
-    scores.push({courseId:courseId, score:score});
+    var dupCheck = _.find(scores, {courseId: courseId});
+    if (dupCheck) {
+      dupCheck.score = score;
+    } else {
+      scores.push({courseId:courseId, score:score});
+    }
     fn(this);
   }
 
