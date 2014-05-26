@@ -45,12 +45,12 @@ class Course{
   get classes(){
     var classes = [];
 
-    if (!this.score){
-      classes.push('none');
-    } else if (this.score < 70){
+    if (this.score <= 0 && this.score < 70){
       classes.push('fail');
-    } else {
+    } else if (this.score > 70){
       classes.push('pass');
+    } else {
+      classes.push('none');
     }
 
     return classes.join(' ');

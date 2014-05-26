@@ -1,12 +1,12 @@
 extends ../shared/template
 
 block content
-  h1(style='text-align: center;') Take your Test
+  h1(style='text-align: center;') Take the #{course.title} Test
 
   form.list-group#test(action='/learners/courses/#{courseId}/test', method='POST')
     each question in questions
       div#testbody
-        div.list-group-item.list-group-item-info.question #{question.q} ?
+        div.list-group-item.list-group-item-info.question #{question.q}
         div.list-group-item.answers
           span.list-group-item.a #{question.a}
             span.badge A

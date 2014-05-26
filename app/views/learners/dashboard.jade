@@ -1,24 +1,23 @@
 extends ../shared/template
 
 block content
-
-  h1 Welcome #{user.email} - #{user.type}
-
-  table.table-bordered#courses
-    thead
-      th Course Name
-      th Course Description
-      th Course Content
-      th
-      th
-    tbody
-      each course in courses
-        tr.table-striped
-          td(data-id=course._id.toString())= course.title
-          td #{course.description}
-          td
-            a(href='/learners/courses/#{course._id}/content') View Content
-          td(class=course.classes) #{course.score}
-          td
-            if(course.isRetestAvailable)
-              a(href='/learners/courses/#{course._id}/test') Retake Test
+  .jumbotron#studentDashboard
+    h1.text-center Course Catalog
+    table.table.table-bordered#courses
+      thead
+        th Course Name
+        th Course Description
+        th Course Content
+        th Score
+        td
+      tbody
+        each course in courses
+          tr.table-striped
+            td(data-id=course._id.toString())= course.title
+            td #{course.description}
+            td
+              a.btn.btn-primary.btn-lg.btn-bloc(href='/learners/courses/#{course._id}/content') View Content
+            td(class=course.classes) #{course.score}
+            td.retest
+              if(course.isRetestAvailable)
+                a.btn.btn-primary.btn-lg.btn-bloc(href='/learners/courses/#{course._id}/test') Retake Test

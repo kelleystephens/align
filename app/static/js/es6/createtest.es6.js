@@ -8,17 +8,9 @@
     $('#add').click(addQ);
   }
 
-  var count = 1;
-
   function addQ(){
-    count++;
-    var last = $('#question').last().attr('data-num');
-    console.log('Count: ');
-    console.log(count);
-    console.log('Last: ');
-    console.log(last);
-    var q = $('#test').children(':last').clone();
-    $('#test').append(q);
+    var q = $('#testbody').children(':last').clone();
+    $('#testbody').append(q);
     $('.q').last().val('');
     $('.a').last().val('');
     $('.b').last().val('');
