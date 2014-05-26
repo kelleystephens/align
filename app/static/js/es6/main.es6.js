@@ -5,22 +5,23 @@
   $(document).ready(init);
 
   function init () {
-    $('#flipbox').click(flip);
+    $('.flipbox').click(flip);
   }
 
   function flip () {
-    var clicked = $('#flipbox').hasClass('clicked');
+    var clicked = $('.flipbox').hasClass('clicked');
     if (clicked){
-      $('#flipped').revertFlip({
+      $('.flipped').revertFlip({
         direction:'lr'
       });
     }else{
-      $('#flipped').flip({
+      $('.flipped').flip({
         direction:'rl',
         color: '#FF8D2C',
         content: $('.back')
       });
-      $('#flipbox').toggleClass('clicked');
+      $('.flipbox').toggleClass('clicked');
+      debugger;
     }
   }
 
