@@ -15,7 +15,6 @@
         content: $('.back')
       });
       $('.flipbox').toggleClass('clicked');
-      debugger;
     }
   }
 })();
