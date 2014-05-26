@@ -44,24 +44,30 @@ exports.scoreTest = (req, res)=>{
 exports.displayTest = (req, res)=>{
   var courseId = req.params.courseId;
   Course.findByCourseId(courseId, course=>{
+    User.findById(req.session.userId, user=>{
     var questions = course.test;
-    res.render('learners/test', {courseId:courseId, questions:questions});
+    res.render('learners/test', {user:user, course:course, courseId:courseId, questions:questions});
+    });
   });
 };
 
 exports.displayContent = (req, res)=>{
   var courseId = req.params.courseId;
   Course.findByCourseId(courseId, course=>{
+    User.findById(req.session.userId, user=>{
     var courseContent = course.content;
     var count = course.content.length;
-    res.render('learners/content', {course:course, courseContents:courseContent, count:count});
+    res.render('learners/content', {user:user, course:course, courseContents:courseContent, count:count});
+    });
   });
 };
 
 exports.content = (req, res)=>{
   var courseId = req.params.courseId;
   Course.findByCourseId(courseId, course=>{
-    res.render('creators/content', {course:course});
+    User.findById(req.session.userId, user=>{
+    res.render('creators/content', {user:user, course:course});
+    });
   });
 };
 

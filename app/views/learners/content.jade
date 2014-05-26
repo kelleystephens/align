@@ -2,8 +2,8 @@ extends ../shared/template
 
 block content
   .page-header#contentPageHeader
-    h1 #{course.title}
-    h3 #{course.description}
+    h1.title #{course.title}
+    h3.description #{course.description}
   hr
   #pagination-container(data-count=count)
     each courseContent in courseContents

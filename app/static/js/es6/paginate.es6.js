@@ -12,9 +12,8 @@
 
   function nextPage()
   {
-    $('.card.shown').next('.card').addClass('shown clicked').show();
-    $('.card.shown.clicked').first('.shown').removeClass('shown clicked').hide();
-    // if($('.card'))
+    $('.card.shown').next('.card').addClass('shown').show();
+    $('.card.shown').first('.shown').removeClass('shown').hide();
     checkContentCount();
   }
 
@@ -25,7 +24,7 @@
 
     if(index === (length - 1))
     {
-      $('#pagination-container').append('<p>End of Course Content.</p>');
+      $('#pagination-container').append(`<h6 class='end'>End of Course Content.</h6>`);
       $('.next').hide();
     }
   }
