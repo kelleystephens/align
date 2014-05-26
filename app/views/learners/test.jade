@@ -1,24 +1,28 @@
 extends ../shared/template
 
 block content
-  h1 Take your Test
+  h1(style='text-align: center;') Take your Test
 
-  form#test(action='/learners/courses/#{courseId}/test', method='POST')
+  form.list-group#test(action='/learners/courses/#{courseId}/test', method='POST')
     each question in questions
       div#testbody
-        div.question #{question.q}
-        div.answers
-          span.a A: #{question.a}
-          span.b B: #{question.b}
-          span.c C: #{question.c}
-          span.d D: #{question.d}
-          select.correct(name='answer')
+        div.list-group-item.list-group-item-info.question #{question.q} ?
+        div.list-group-item.answers
+          span.list-group-item.a #{question.a}
+            span.badge A
+          span.list-group-item.b #{question.b}
+            span.badge B
+          span.list-group-item.c #{question.c}
+            span.badge C
+          span.list-group-item.d #{question.d}
+            span.badge D
+          select.form-control.correct(name='answer')
             option Select the Correct Answer
             option(value='a') A
             option(value='b') B
             option(value='c') C
             option(value='d') D
     div#controls
-      button#send Submit Test Answers
+      button.btn.btn-primary#send Submit Test Answers
 
 block scripts

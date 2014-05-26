@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
+// var Mongo = require('mongodb');
 
 class Test{
   static create(obj, fn){
@@ -15,6 +16,18 @@ class Test{
     fn(test);
   }
 
+  static findUserScores(user, courses, fn){
+    var userScores = _([user.scores]).flatten().value();
+    courses = _([courses]).flatten().value();
+    courses.forEach((c, i)=>{
+      var index = _.find(userScores, {courseId: c._id});
+      if(index){
+        c.score = index.score;
+      }
+    });
+
+    fn(courses);
+  }
 }
 
 module.exports = Test;

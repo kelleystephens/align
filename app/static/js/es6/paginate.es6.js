@@ -12,8 +12,9 @@
 
   function nextPage()
   {
-    $('.card.shown').next('.card').addClass('shown').show();
-    $('.card.shown').first('.shown').removeClass('shown').hide();
+    $('.card.shown').next('.card').addClass('shown clicked').show();
+    $('.card.shown.clicked').first('.shown').removeClass('shown clicked').hide();
+    // if($('.card'))
     checkContentCount();
   }
 

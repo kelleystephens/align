@@ -1,9 +1,29 @@
 extends ../shared/template
 
 block content
-  h1 Welcome #{user.email} - #{user.type}
+  .jumbotron#teacherDashboard
+    h1.text-center Create a New Course
 
-  form(action='/creators/dashboard', method='post')
-    input(type='text', name='title', autofocus=true, placeholder='Course Name')
-    input(type='text', name='description', placeholder='Course Description')
-    button Create Course
+    form(action='/creators/dashboard', method='post')
+      .input-group
+        label.input-group-addon Course Name
+        input.form-control(type='text', name='title', autofocus=true)
+      .input-group
+        label.input-group-addon Course Description
+        input.form-control(type='text', name='description', placeholder='Course Description')
+      button.btn.btn-primary.btn-lg.btn-block Create Course
+
+  h3 Your Courses
+  table.table#userscourses
+    thead
+      th Course Name
+      th Course Description
+    tbody
+      each course in courses
+        tr.table-striped
+          td(data-id=course._id.toString())= course.title
+          td #{course.description}
+          td
+            a(href='/creators/courses/#{course._id}/content/edit') Edit Content
+          td
+            a(href='/creators/courses/#{course._id}/test/edit') Edit Test
