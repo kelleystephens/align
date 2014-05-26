@@ -3,36 +3,37 @@ extends ../shared/template
 block content
   h1= title
 
-  div
-    button.btn.btn-primary#add Add Question
-
-  form#testQuestion(action='/creators/courses/#{courseId}/test', method='POST')
-    button.btn.btn-primary#save Save Test
-    div.question(data-num=1)
-      .input-group
-        label.input-group-addon(for='q') Question:
+  form.list-group#test(action='/creators/courses/#{courseId}/test', method='POST')
+    div#testbody
+      div.question.list-group-item(data-num=1)
+        .input-group
+          label.input-group-addon(for='q') Question:
           input.form-control.q(type='textarea', name='q', placeholder='Question')
-      .input-group
-        label.input-group-addon(for='a') A:
+        .input-group
+          label.input-group-addon(for='a') A:
           input.form-control.a(type='text', name='a', placeholder='Answer')
-      .input-group
-        label.input-group-addon(for='b') B:
+        .input-group
+          label.input-group-addon(for='b') B:
           input.form-control.b(type='text', name='b', placeholder='Answer')
-      .input-group
-        label.input-group-addon(for='c') C:
+        .input-group
+          label.input-group-addon(for='c') C:
           input.form-control.c(type='text', name='c', placeholder='Answer')
-      .input-group
-        label.input-group-addon(for='d') D:
+        .input-group
+          label.input-group-addon(for='d') D:
           input.form-control.d(type='text', name='d', placeholder='Answer')
-      .input-group
-        label.input-group-addon(for='correct') Correct Answer:
+        .input-group.correct
           select.form-control.correct(name='correct')
-            option Select the Correct Answer
-            option(value='a') A
-            option(value='b') B
-            option(value='c') C
-            option(value='d') D
-      button.glyphicon.glyphicon-trash.nuke(style='display: inline-block;')
+              option Select the Correct Answer
+              option(value='a') A
+              option(value='b') B
+              option(value='c') C
+              option(value='d') D
+        button.glyphicon.glyphicon-trash.nuke
+    div#controls
+      div.left
+        .btn.btn-primary#add Add Question
+      div.right
+        button.btn.btn-primary#save Save Test
 
 block scripts
   script(src='/js/es6/compiled/createtest.js')
