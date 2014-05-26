@@ -1,5 +1,7 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700|Bitter);
+
 body{
-  background-image: url('/img/gray_bkgd.png');
+  background-image: url('/img/cool-tan-bg.png');
 }
 
 h2{
@@ -11,7 +13,23 @@ h2{
   float: left;
   margin: 30px;
   height: 300px;
-  background-color: white;
+  background-color: rgba(245, 244, 244, 0.5);
+  font-family: 'Lato', serif;
+  h2{
+    color:#304c58;
+  }
+  select{
+    width: 90%;
+  }
+  button{
+    position: absolute;
+    bottom: 10px;
+    margin: 0px;
+    width: 90%;
+    background-color: #c5d6b4;
+    border: none;
+    color: #304c58;
+  }
 }
 
 .input-group:first-child{
@@ -120,5 +138,78 @@ nav li{
   .badge {
     float: left;
     margin-right: 5px;
+  }
+}
+
+.navbar{
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+
+.navbar-fixed-top.navbar-inverse{
+  background-color: #c3c1b9;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+  color: #f1f0ec !important;
+  font-family: 'Lato', serif !important;
+  font-size: 20px;
+}
+
+.navbar-default{
+  background-color: #304c58;
+  font-family: 'Lato', serif;
+}
+
+.navbar-brand{
+  font-size: 40px;
+  font-weight: 700;
+  color: #c5d6b4 !important;
+  .navbar-brand:hover{
+    color: #c5d6b4;
+  }
+  .navbar-brand:visited{
+    color: #c5d6b4;
+  }
+}
+
+a.login, a.logout{
+  font-size: 20px;
+  background-color: #87adb4 !important;
+  color: #304c58 !important;
+  height: 55px;
+}
+
+a.userEmail, a.welcome{
+  font-size: 20px;
+  color: #c5d6b4 !important;
+  background-color: #304c58 !important;
+}
+
+.input-group-addon{
+  background-color: #c3c1b9;
+  color: #f1f0ec;
+  font-size: 15px;
+}
+
+#creatorCourses{
+  width: 80%;
+  margin: auto;
+  background-color: rgba(245, 244, 244, 0.5);
+  font-family: 'Lato', serif;
+  color: #304c58;
+  h3{
+    text-align: center;
+  }
+}
+
+#teacherDashboard{
+  h1{
+    font-family: 'Lato', serif;
+    color: #304c58;
+  }
+  button{
+    background-color: #c5d6b4;
+    border: none;
   }
 }

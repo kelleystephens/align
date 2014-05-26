@@ -28,6 +28,7 @@ function ajax(url, type, data={}, success=r=>console.log(r), dataType='html'){
   }
 
   function flip () {
+    // debugger;
     var clicked = $('.flipbox').hasClass('clicked');
     if (clicked){
       $('.flipbox').revertFlip({

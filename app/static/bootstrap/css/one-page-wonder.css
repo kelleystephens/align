@@ -1,9 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700|Bitter);
+
 body {
 	margin-top: 50px; /* 50px is the height of the navbar - change this if the navbarn height changes */
 }
 
 .header-image {
-	background-image: url('/img/gray_bkgd.png'); /* Use a tiling background image or a full width image - if you're using full width you will need to change no-repeat center center cover  */
+	background-image: url('/img/cool-tan-bg.png'); /* Use a tiling background image or a full width image - if you're using full width you will need to change no-repeat center center cover  */
 	background-position: top;
 	height: auto;
 	display: block;
@@ -17,14 +19,14 @@ body {
 
 .headline > .container > h1 {
 	font-size: 130px;
-	background: #ffffff;
-	background: rgba(255, 255, 255, 0.9);
+	background: rgba(248, 248, 248, 0.80);
+	color: #304c58;
 }
 
 .headline > .container > h2 {
 	font-size: 77px;
-	background: #ffffff;
-	background: rgba(255, 255, 255, 0.9);
+	background: rgba(248, 248, 248, 0.80);
+	color: #304c58;
 }
 
 .featurette-divider {
@@ -32,6 +34,12 @@ body {
 }
 .featurette {
 	overflow: hidden;
+	color: #304c58;
+	font-family: 'Lato', serif;
+}
+
+.lead{
+	font-weight: 400 !important;
 }
 
 .featurette-image.pull-left {
@@ -43,6 +51,11 @@ body {
 
 .featurette-heading {
 	font-size: 50px;
+	color: #304c58;
+}
+
+.text-muted{
+	color: #56727a;
 }
 
 footer {
