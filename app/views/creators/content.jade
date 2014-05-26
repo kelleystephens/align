@@ -1,0 +1,26 @@
+extends ../shared/template
+
+block content
+  .jumbotron#createContent
+    h1= course.title
+    h2= course.description
+
+    button.btn.btn-primary.btn-lg.add-content Add Card
+
+    form#content(action='/creators/courses/#{course._id}/content', method='post')
+      button.btn.btn-primary.btn-lg.submit-content Submit Course Content
+      .content-item(style='display: block;')
+        //- .front(style='display: inline-block;')
+        .col-md-6.front
+          Label Front of Card:
+          textarea.form-control(name='front', style='width: 200px; height: 100px;', placeholder='What is JavaScript?')
+        //- .back(style='display: inline-block;')
+        .col-md-6.back
+          Label Back of Card:
+          textarea.form-control(name='back', style='width: 200px; height: 100px;', placeholder='An object-oriented computer programming language...')
+        button.btn.btn-default.btn-md.delete(style='display: inline-block;') delete
+
+
+
+block scripts
+  script(src='/js/es6/compiled/createcontent.js')

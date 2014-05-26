@@ -1,0 +1,26 @@
+extends ../shared/template
+
+block content
+  .page-header#contentPageHeader
+    h1 #{course.title}
+    h3 #{course.description}
+  hr
+  #pagination-container(data-count=count)
+    each courseContent in courseContents
+      //- .card#flipbox(style='width:500px; height: 200px;')
+      .card.flipbox
+        //- .front#flipped(style='width:250px; height: 200px; display: inline-block;')
+        .front.flipped
+          h2 #{courseContent.front}
+        .back(style='width:250px; height: 200px; display: inline-block; visibility: hidden;')
+          h2 #{courseContent.back}
+  hr
+  ul.pager
+    li
+      a.next(href='#') Next Page
+    li
+      a(href='/learners/courses/#{course._id}/test') Take Test
+
+
+block scripts
+  script(src='/js/es6/compiled/paginate.js')

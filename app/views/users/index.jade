@@ -4,18 +4,20 @@ block content
 
   div.col-md-6#existingaccount
     h2 Log In to Your Account
+    hr
     form#login(action='/login', method='post')
       .input-group
         label.input-group-addon Email:
-        input.form-control.email(type='email', name='email', autofocus=true, placeholder='Email Address')
+        input.form-control.email(type='email', name='email', autofocus=true, placeholder='user@example.com')
       .input-group
         label.input-group-addon Password:
         input.form-control.password(type='password', name='password', placeholder='Password')
-      button.btn.btn-default#submit Log In!
+      button.btn.btn-primary.btn-md.btn-block#submit Log In!
 
 
   div.col-md-6#newaccount
     h2 Register a New Account
+    hr
     form#register(action='/create', method='post')
       .input-group
         label.input-group-addon Email:
@@ -25,6 +27,6 @@ block content
         input.form-control.password(type='password', name='password', placeholder='Password')
       select.form-control#type(name='type')
         option Select a User Type
-        option Creator
-        option Learner
-      button.btn.btn-default#submit Register!
+        option(value='creator') Creator
+        option(value ='learner') Learner
+      button.btn.btn-primary.btn-md.btn-block#submit Register!

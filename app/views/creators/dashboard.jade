@@ -1,4 +1,29 @@
 extends ../shared/template
 
 block content
-  h1 Welcome #{user.email} - #{user.type}
+  .jumbotron#teacherDashboard
+    h1.text-center(style='color: #304c58;') Create a New Course
+
+    form(action='/creators/dashboard', method='post')
+      .input-group
+        label.input-group-addon(style='background: #c3c1b9; color: #f1f0ec;') Course Name
+        input.form-control(type='text', name='title', autofocus=true)
+      .input-group
+        label.input-group-addon(style='background: #c3c1b9; color: #f1f0ec;') Course Description
+        input.form-control(type='text', name='description', placeholder='Course Description')
+      button.btn.btn-primary.btn-lg.btn-block(style='background: #c5d6b4; color: #304c58; border: none; margin-top: 20px;') Create Course
+
+    h3 Your Courses
+    table.table#userscourses
+      thead
+        th Course Name
+        th Course Description
+      tbody
+        each course in courses
+          tr.table-striped
+            td(data-id=course._id.toString())= course.title
+            td #{course.description}
+            td
+              a(href='/creators/courses/#{course._id}/content/edit', style='color: #87adb4;') Edit Content
+            td
+              a(href='/creators/courses/#{course._id}/test/edit', style='color: #87adb4;') Edit Test

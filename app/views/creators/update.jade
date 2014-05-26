@@ -1,0 +1,9 @@
+.card(style='width:500px; height: 200px;')
+  .front(style='width:150px; height: 1500px; display: inline-block;')
+    p #{updatedContent.front}
+  .back(style='width:150px; height: 150px; display: inline-block;')
+    p #{updatedContent.back}
+  button.delete.on(style='display:inline-block; margin:0px;') X
+  button.edit.on(style='display:inline-block; margin:0px;') Edit
+  button.save.off(style='display:inline-block; margin:0px;') Save
+  button.cancel.off(style='display:inline-block; margin:0px;') Cancel
