@@ -6,6 +6,27 @@ var Test = traceur.require(__dirname + '/../models/test.js');
 var Content = traceur.require(__dirname + '/../models/content.js');
 var User = traceur.require(__dirname + '/../models/user.js');
 
+exports.savecontent = (req, res)=>{
+  var courseId = req.params.courseId;
+  var updates = req.body;
+  Course.findByCourseId(courseId, course=>{
+    course.update(updates);
+    course.save((c)=>{
+      var updatedContent = course.content[updates.index];
+      res.render('creators/update', {updatedContent:updatedContent});
+    });
+  });
+};
+
+exports.editcontent = (req, res)=>{
+  var courseId = req.params.courseId;
+  Course.findByCourseId(courseId, course=>{
+    var courseContent = course.content;
+    var courseId = course._id.toString();
+    res.render('creators/editcontent', {course:course, courseContents:courseContent, courseId:courseId});
+  });
+};
+
 exports.scoreTest = (req, res)=>{
   var courseId = req.params.courseId;
   var learnerAnswers = req.body.answer;

@@ -18,4 +18,7 @@ block content
         tr
           td(data-id=course._id.toString())= course.title
           td #{course.description}
-          
+          td
+            a(href='/creators/courses/#{course._id}/content/edit') Edit Content
+          td
+            a(href='/creators/courses/#{course._id}/test/edit') Edit Test

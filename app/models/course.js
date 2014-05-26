@@ -14,6 +14,14 @@ class Course{
     this.content = [];
   }
 
+  update(updates){
+    var index = updates.index;
+    var front = updates.front;
+    var back = updates.back;
+    this.content[index].front = front;
+    this.content[index].back = back;
+  }
+
   save(fn){
     courses.save(this, (e,c)=>fn(c));
   }
