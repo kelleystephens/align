@@ -3,6 +3,7 @@
   $(document).ready(init);
   function init() {
     toggleLogInOut();
+    $('.flipbox').click(flip);
   }
   function toggleLogInOut() {
     var url = window.location.pathname;
@@ -13,6 +14,20 @@
       $('.logout').hide();
     } else {
       $('.login').hide();
+    }
+  }
+  function flip() {
+    var clicked = $('.flipbox').hasClass('clicked');
+    if (clicked) {
+      $('.flipped').revertFlip({direction: 'lr'});
+    } else {
+      $('.flipped').flip({
+        direction: 'rl',
+        color: '#FF8D2C',
+        content: $('.back')
+      });
+      $('.flipbox').toggleClass('clicked');
+      debugger;
     }
   }
 })();

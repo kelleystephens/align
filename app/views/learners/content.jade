@@ -1,18 +1,25 @@
 extends ../shared/template
 
 block content
-  h1 #{course.title}
-  h2 #{course.description}
-
+  .page-header#contentPageHeader
+    h1 #{course.title}
+    h3 #{course.description}
+  hr
   #pagination-container(data-count=count)
     each courseContent in courseContents
-      .card(style='width:500px; height: 200px;')
-        .front(style='width:250px; height: 200px; display: inline-block;')
-          p #{courseContent.front}
-        .back(style='width:250px; height: 200px; display: inline-block;')
-          p #{courseContent.back}
-  a.next(href='#') Next Page
-  a(href='/learners/courses/#{course._id}/test') Take Test
+      //- .card#flipbox(style='width:500px; height: 200px;')
+      .card.flipbox
+        //- .front#flipped(style='width:250px; height: 200px; display: inline-block;')
+        .front.flipped
+          h2 #{courseContent.front}
+        .back(style='width:250px; height: 200px; display: inline-block; visibility: hidden;')
+          h2 #{courseContent.back}
+  hr
+  ul.pager
+    li
+      a.next(href='#') Next Page
+    li
+      a(href='/learners/courses/#{course._id}/test') Take Test
 
 
 block scripts
