@@ -17,28 +17,19 @@ class Test{
   }
 
   static findUserScores(user, courses, fn){
-    console.log('User objects: ');
-    console.log(user);
-
     var userScores = _([user.scores]).flatten().value();
-
-    console.log('userScores: ');
-    console.log(userScores);
     courses = _([courses]).flatten().value();
     courses.forEach((c, i)=>{
-      var course = c._id;
-      console.log('Looping through courses: ');
-      console.log(course);
-      var index = _.findIndex(userScores, course);
-      console.log('Index?');
-      console.log(index);
-      if(index >= 0){
-        c.score = userScores[index].score;
-      }
-    });
+      var index = _.find(userScores, {courseId: c._id});
 
-    console.log('Courses: ');
-    console.log(courses);
+      if(index){
+        c.score = index.score;
+      }
+
+      // else {
+      //   c.score = null;
+      // }
+    });
 
     fn(courses);
   }

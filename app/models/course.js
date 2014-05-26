@@ -34,6 +34,25 @@ class Course{
     fn(score);
   }
 
+  get classes(){
+    var classes = [];
+
+    if (!this.score){
+      classes.push('none');
+    } else if (this.score < 70){
+      classes.push('fail');
+    } else {
+      classes.push('pass');
+    }
+
+    return classes.join(' ');
+  }
+
+  get isRetestAvailable(){
+    var tookTest = _.any(this, 'score');
+    return this.score < 70 && tookTest;
+  }
+
   static findByCourseId(courseId, fn){
     courseId = Mongo.ObjectID(courseId);
     courses.findOne({_id:courseId}, (e,course)=>{
