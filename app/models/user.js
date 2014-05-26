@@ -19,7 +19,13 @@ class User{
 
   addScore(score, courseId, fn){
     var scores = this.scores;
-    scores.push({courseId:courseId, score:score});
+    courseId = Mongo.ObjectID(courseId);
+    var dupCheck = _.find(scores, {courseId: courseId});
+    if (dupCheck) {
+      dupCheck.score = score;
+    } else {
+      scores.push({courseId:courseId, score:score});
+    }
     fn(this);
   }
 
@@ -52,8 +58,8 @@ class User{
   static findById(userId, fn){
     userId = Mongo.ObjectID(userId);
     users.findOne({_id: userId}, (e, user)=>{
-        user = _.create(User.prototype, user);
-        fn(user);
+      user = _.create(User.prototype, user);
+      fn(user);
     });
   }
 

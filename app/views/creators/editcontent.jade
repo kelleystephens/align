@@ -1,0 +1,32 @@
+extends ../shared/template
+
+block content
+  h1(data-id=course._id.toString())= course.title
+  h2 #{course.description}
+
+  //-button.add-content Add Content
+
+  #course-contents
+    .card.new(style='display: block;')
+      .front(style='display: inline-block;')
+        Label Front of Card:
+        textarea(name='front', style='width: 200px; height: 100px;', placeholder='What is JavaScript?')
+      .back(style='display: inline-block;')
+        Label Back of Card:
+        textarea(name='back', style='width: 200px; height: 100px;', placeholder='An object-oriented computer programming language...')
+      button.delete(style='display: inline-block;') X
+    each courseContent in courseContents
+      .card(style='width:500px; height: 200px;')
+        .front(style='width:150px; height: 1500px; display: inline-block;')
+          p #{courseContent.front}
+        .back(style='width:150px; height: 150px; display: inline-block;')
+          p #{courseContent.back}
+        //-button.delete.on(style='display:inline-block; margin:0px;') X
+        button.edit.on(style='display:inline-block; margin:0px;') Edit
+        button.save.off(style='display:inline-block; margin:0px;') Save
+        a.cancel.off(style='display:inline-block; margin:0px;' href='/creators/courses/#{courseId}/content/edit') Cancel
+  a.submit(href='/creators/dashboard') Done Editing
+
+
+block scripts
+  script(src='/js/es6/compiled/editcontent.js')

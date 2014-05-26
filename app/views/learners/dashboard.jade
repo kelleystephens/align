@@ -4,12 +4,13 @@ block content
 
   h1 Welcome #{user.email} - #{user.type}
 
-  table.table-bordered
+  table.table-bordered#courses
     thead
       th Course Name
       th Course Description
       th Course Content
-      th Course Test
+      th
+      th
     tbody
       each course in courses
         tr.table-striped
@@ -17,5 +18,7 @@ block content
           td #{course.description}
           td
             a(href='/learners/courses/#{course._id}/content') View Content
+          td(class=course.classes) #{course.score}
           td
-            a(href='/learners/courses/#{course._id}/test') View Test
+            if(course.isRetestAvailable)
+              a(href='/learners/courses/#{course._id}/test') Retake Test

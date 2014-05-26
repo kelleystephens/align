@@ -5,9 +5,9 @@ html
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title= title
+
     link(href='/jquery-ui/css/no-theme/jquery-ui-1.10.4.custom.css', rel='stylesheet')
     link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/jquery-ui/css/no-theme/jquery-ui.custom.css', rel='stylesheet')
     link(href='/css/normalize.css', rel='stylesheet')
     link(href='/css/buttons.css', rel='stylesheet')
     link(href='/less/app.css', rel='stylesheet')
@@ -25,9 +25,16 @@ html
         div.collapse.navbar-collapse#bs-example-navbar-collapse-1
           ul.nav.navbar-nav
             li.active
-              a(href='/login') User Registration/Login
-            li
-              a(href='/logout') Logout
+              a.login(href='/login') User Registration/Login
+              a.logout(href='/logout') Logout
+          if user
+            ul.nav.navbar-nav.navbar-right
+              li.active
+                a.userEmail(href='#') #{user.email} - #{user.type}
+          else
+            ul.nav.navbar-nav.navbar-right
+              li.active
+                a(href='#') Welcome
 
     block content
 

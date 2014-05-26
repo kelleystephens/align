@@ -1,7 +1,53 @@
 extends ../shared/template
 
 block content
-  h1= title
-  #flipbox
-    #flipped
-      h2 what is the best way to study?
+  link(href='/bootstrap/css/one-page-wonder.css', rel='stylesheet')
+  body(style='background: white')
+
+  nav.navbar.navbar-fixed-top.navbar-inverse
+    .collapse.navbar-collapse.navbar-ex1-collapse
+      ul.nav.navbar-nav
+        li
+          a(href='#about') About
+        li
+          a(href='#team') The Team
+        li
+          a(href='#contact') Contact
+  .header-image
+    .headline
+      .container
+        h1 Align<br />
+           |LMS
+        h2 Add Knowledge, Add Value
+  .container
+    hr.featurette-divider
+    .featurette#about
+      img.featurette-image.img-circle.img-responsive.pull-right(src='/img/about.jpg')
+      h2.featurette-heading Learn About
+        span.text-muted  Align
+      p.lead In the world today, information is constently being born, updated or changed.
+        |Don't let your employees fall behind. Align makes it easy for your content creators to
+        |generate and modify learning modules and for the learners to easily access the information
+        |and complete the assessment. Don't put off till tomorrow, what you could learn today!
+    hr.featurette-divider
+    .featurette#team
+      img.featurette-image.img-circle.img-responsive.pull-left(src='/img/team.jpg')
+      h2.featurette-heading Meet The
+        span.text-muted  Team
+      p.lead Behind every great product, sits an even better team!
+        |A born & raised Nashvillian, <strong>Kelley</strong> came to the group with a background in Marketing. Her favorite colors include rainbow & sparkle.
+        |When <strong>Samantha</strong> isn't busy with the AMA, Junior League of Nashville, or the New Leaders Council, she is running, practicing yoga or writing her novel. She's a mover & a shaker.
+        |<strong>Will</strong> is proof that from small states, come big minds. Born & raised in Rhode Island, he has experience in audio production/promotions & enjoys dj'ing.
+        |With a degree in Graphic Design, <strong>Rachel</strong> is your go-to-girl for all things aesthetic. Her list of favorite things includes sunshine, the first dafodils & creamy tomato soup.
+    hr.featurette-divider
+    .featurette#contact
+      img.featurette-image.img-circle.img-responsive.pull-right(src='/img/contact.jpg')
+      h2.featurette-heading Contact A
+        span.text-muted  Human
+      p.lead We know things can't always be perfect, but if you have a problem, we want to find a solution.
+        |You can reach us at : <br> (phone) 555.678.1234 <br>
+        |(email) help@align.com <br>
+        |(website) Align.com/help
+
+block scripts
+  script(src='/bootstrap/js/bootstrap.min.js')

@@ -14,6 +14,14 @@ class Course{
     this.content = [];
   }
 
+  update(updates){
+    var index = updates.index;
+    var front = updates.front;
+    var back = updates.back;
+    this.content[index].front = front;
+    this.content[index].back = back;
+  }
+
   save(fn){
     courses.save(this, (e,c)=>fn(c));
   }
@@ -32,6 +40,25 @@ class Course{
     });
     var score = (totalCorrect/total) * 100;
     fn(score);
+  }
+
+  get classes(){
+    var classes = [];
+
+    if (!this.score){
+      classes.push('none');
+    } else if (this.score < 70){
+      classes.push('fail');
+    } else {
+      classes.push('pass');
+    }
+
+    return classes.join(' ');
+  }
+
+  get isRetestAvailable(){
+    var tookTest = (this.score <= 0) ? true : false;
+    return this.score < 70 && tookTest;
   }
 
   static findByCreatorId(creatorId, fn){
