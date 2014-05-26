@@ -1,0 +1,24 @@
+extends ../shared/template
+
+block content
+  h1 Take your Test
+
+  form#test(action='/learners/courses/#{courseId}/test', method='POST')
+    each question in questions
+      div#testbody
+        div.question #{question.q}
+        div.answers
+          span.a A: #{question.a}
+          span.b B: #{question.b}
+          span.c C: #{question.c}
+          span.d D: #{question.d}
+          select.correct(name='answer')
+            option Select the Correct Answer
+            option(value='a') A
+            option(value='b') B
+            option(value='c') C
+            option(value='d') D
+    div#controls
+      button#send Submit Test Answers
+
+block scripts

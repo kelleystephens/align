@@ -1,4 +1,21 @@
 extends ../shared/template
 
 block content
+
   h1 Welcome #{user.email} - #{user.type}
+
+  table
+    thead
+      th Course Name
+      th Course Description
+      th Course Content
+      th Course Test
+    tbody
+      each course in courses
+        tr
+          td(data-id=course._id.toString())= course.title
+          td #{course.description}
+          td
+            a(href='/learners/courses/#{course._id}/content') View Content
+          td
+            a(href='/learners/courses/#{course._id}/test') View Test
