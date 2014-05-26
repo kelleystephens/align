@@ -19,15 +19,17 @@
   function flip() {
     var clicked = $('.flipbox').hasClass('clicked');
     if (clicked) {
-      $('.flipped').revertFlip({direction: 'lr'});
+      $('.flipbox').revertFlip({
+        direction: 'lr',
+        color: '#8aaeb5'
+      });
     } else {
-      $('.flipped').flip({
+      $('.flipbox').flip({
         direction: 'rl',
-        color: '#FF8D2C',
+        color: '#8aaeb5',
         content: $('.back')
       });
       $('.flipbox').toggleClass('clicked');
-      debugger;
     }
   }
 })();
