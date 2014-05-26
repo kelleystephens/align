@@ -13,7 +13,7 @@
   function nextPage()
   {
     $('.card.shown').next('.card').addClass('shown clicked').show();
-    $('.card.shown.clicked').first('.shown').removeClass('shown clicked').hide();
+    $('.card.shown').first('.shown').removeClass('shown clicked').hide();
     // if($('.card'))
     checkContentCount();
   }

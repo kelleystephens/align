@@ -5,13 +5,14 @@
   $(document).ready(init);
 
   function init () {
-    $('.flipbox').click(flip);
+    $('#pagination-container').on('click', '.flipbox.shown', flip );
   }
 
   function flip () {
+    alert('flipping');
     var clicked = $('.flipbox').hasClass('clicked');
     if (clicked){
-      $('.flipped').revertFlip({
+      $('.flipped .shown').revertFlip({
         direction:'lr'
       });
     }else{
@@ -21,7 +22,7 @@
         content: $('.back')
       });
       $('.flipbox').toggleClass('clicked');
-      debugger;
+      //debugger;
     }
   }
 
