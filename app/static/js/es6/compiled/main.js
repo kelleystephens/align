@@ -12,7 +12,7 @@
       $('#flipped').flip({
         direction: 'rl',
         color: '#FF8D2C',
-        content: '<h2>Study Buddy</h2>'
+        content: $('.back')
       });
       $('#flipbox').toggleClass('clicked');
     }
