@@ -1,9 +1,12 @@
 extends ../shared/template
 
 block content
+
   .jumbotron#editContentContain
     h1(data-id=course._id.toString())= course.title
     h2 #{course.description}
+
+    //-button.add-content Add Content
 
     #course-contents
       .card.new(style='display: block;')
@@ -25,7 +28,6 @@ block content
           button.save.off(style='display:inline-block; margin:0px;') Save
           a.cancel.off(style='display:inline-block; margin:0px;' href='/creators/courses/#{courseId}/content/edit') Cancel
     a.submit(href='/creators/dashboard') Done Editing
-
 
 block scripts
   script(src='/js/es6/compiled/editcontent.js')

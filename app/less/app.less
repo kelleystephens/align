@@ -1,12 +1,25 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700|Bitter);
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700|Bitter:400,700);
 
 body{
   background-image: url('/img/cool-tan-bg.png');
+  font-family: 'Lato', sans-serif;
 }
 
 h2{
   text-align: center;
   font-family: 'Lato', serif;
+}
+
+h6.end{
+  text-align: center;
+}
+
+h1.title{
+  color: #304c58;
+}
+
+#contentPageHeader > h1,h3{
+  color: #304c58;
 }
 
 #newaccount, #existingaccount{
@@ -37,19 +50,6 @@ h2{
   margin-bottom: 20px;
 }
 
-// .submit{
-//   position: absolute;
-//   bottom: 30px;
-//   margin: auto;
-//
-//   button{
-//     margin: 25px 25px 25px 0px;
-//   }
-//   select{
-//     margin: 0px 25px 25px 0px;
-//   }
-// }
-
 label, select, button{
   display: block;
   margin: 25px;
@@ -65,9 +65,12 @@ nav li{
   width: 600px;
   height: 250px;
   border: none;
+  text-align: center;
+  box-shadow: 3px 3px 5px #c3c1b9;
   h2{
-    line-height: 200px;
     color: white;
+    padding: 20px;
+    vertical-align: middle;
   }
 }
 
@@ -80,15 +83,18 @@ nav li{
   height: 100%;
   display: inline-block;
   text-align: center;
+  line-height: 100%;
   h2{
-    line-height: 200px;
+    vertical-align: middle;
     color: white;
+    padding: 20px;
   }
 }
 
 .flipbox :hover {
+  cursor: pointer;
   h2{
-    text-shadow: 2px 2px black;
+    text-shadow: 2px 2px #304c58;
   }
 }
 
@@ -103,6 +109,7 @@ nav li{
 
 #createContent {
   text-align: center;
+  color: #304c58;
   button, textarea {
     display: inline-block;
   }
@@ -138,6 +145,7 @@ nav li{
   .badge {
     float: left;
     margin-right: 5px;
+    background-color: #87adb4;
   }
 }
 
@@ -287,4 +295,48 @@ a.userEmail, a.welcome{
 #createcourse{
   background-color: #c5d6b4;
   border: none;
+}
+
+.list-group-item-info.question{
+  background-color: #c5d6b4;
+  color: #304c58;
+}
+
+.list-group-item.answers{
+  background-color: rgba(245, 244, 242, 0.5);
+}
+
+#send{
+  background-color: #9c2d34;
+  border-color: #9c2d34;
+  color: white;
+}
+
+#send:hover{
+  background-color: #deb2a9;
+  border-color: #deb2a9;
+  color: white;
+}
+
+.btn-primary{
+  background-color: #c5d6b4;
+  border-color: #c5d6b4;
+  color: #304c58;
+}
+
+.btn-primary:hover{
+  background-color: #87adb4;
+  border-color: #87adb4;
+  color: #f1f0ec;
+}
+
+.submit-content{
+  background-color: #9c2d34;
+  border-color: #9c2d34;
+  color: #f1f0ec;
+}
+
+.pager li > a, .pager li > span{
+  background-color: #c5d6b4;
+  color: #304c58;
 }

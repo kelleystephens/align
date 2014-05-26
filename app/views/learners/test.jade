@@ -1,7 +1,8 @@
 extends ../shared/template
 
 block content
-  h1(style='text-align: center;') Take the #{course.title} Test
+
+  h1.title(style='text-align: center;') #{course.title} Test
 
   form.list-group#test(action='/learners/courses/#{courseId}/test', method='POST')
     each question in questions
