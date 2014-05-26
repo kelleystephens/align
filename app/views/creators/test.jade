@@ -2,36 +2,39 @@ extends ../shared/template
 
 block content
   h1= title
-  #testQuestion
-    form#test(action='/creators/courses/#{courseId}/test', method='POST')
-      button.btn.btn-primary#save Save Test
-      div.question(data-num=1)
-        .input-group
-          label.input-group-addon(for='q') Question:
+
+      //- a.glyphicon.glyphicon-trash.nuke(href='#')
+
+  div
+    button.btn.btn-primary#add Add Question
+
+  form#test#testQuestion(action='/creators/courses/#{courseId}/test', method='POST')
+    button.btn.btn-primary#save Save Test
+    div.question(data-num=1)
+      .input-group
+        label.input-group-addon(for='q') Question:
           input.form-control.q(type='textarea', name='q', placeholder='Question')
-        .input-group
-          label.input-group-addon(for='a') A:
+      .input-group
+        label.input-group-addon(for='a') A:
           input.form-control.a(type='text', name='a', placeholder='Answer')
-        .input-group
-          label.input-group-addon(for='b') B:
+      .input-group
+        label.input-group-addon(for='b') B:
           input.form-control.b(type='text', name='b', placeholder='Answer')
-        .input-group
-          label.input-group-addon(for='c') C:
+      .input-group
+        label.input-group-addon(for='c') C:
           input.form-control.c(type='text', name='c', placeholder='Answer')
-        .input-group
-          label.input-group-addon(for='d') D:
+      .input-group
+        label.input-group-addon(for='d') D:
           input.form-control.d(type='text', name='d', placeholder='Answer')
-        .input-group
-          label(for='correct')
+      .input-group
+        label.input-group-addon(for='correct') Correct Answer:
           select.form-control.correct(name='correct')
             option Select the Correct Answer
             option(value='a') A
             option(value='b') B
             option(value='c') C
             option(value='d') D
-    div
-      button.btn.btn-primary#add Add Question
-      a.glyphicon.glyphicon-trash.nuke(href='#')
+      button.glyphicon.glyphicon-trash.nuke(style='display: inline-block;') X
 
 block scripts
   script(src='/js/es6/compiled/createtest.js')

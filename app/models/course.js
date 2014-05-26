@@ -42,6 +42,25 @@ class Course{
     fn(score);
   }
 
+  get classes(){
+    var classes = [];
+
+    if (!this.score){
+      classes.push('none');
+    } else if (this.score < 70){
+      classes.push('fail');
+    } else {
+      classes.push('pass');
+    }
+
+    return classes.join(' ');
+  }
+
+  get isRetestAvailable(){
+    var tookTest = (this.score <= 0) ? true : false;
+    return this.score < 70 && tookTest;
+  }
+
   static findByCreatorId(creatorId, fn){
     courses.find({creatorId:creatorId}).toArray((e, objs)=>{
       var courses = objs.map(o=>_.create(Course.prototype, o));

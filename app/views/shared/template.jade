@@ -27,6 +27,14 @@ html
             li.active
               a.login(href='/login') User Registration/Login
               a.logout(href='/logout') Logout
+          if user
+            ul.nav.navbar-nav.navbar-right
+              li.active
+                a.userEmail(href='#') #{user.email} - #{user.type}
+          else
+            ul.nav.navbar-nav.navbar-right
+              li.active
+                a(href='#') Welcome
 
     block content
 
