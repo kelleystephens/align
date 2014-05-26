@@ -45,7 +45,7 @@ exports.displayTest = (req, res)=>{
   var courseId = req.params.courseId;
   Course.findByCourseId(courseId, course=>{
     var questions = course.test;
-    res.render('learners/test', {courseId:courseId, questions:questions});
+    res.render('learners/test', {courseId:courseId, questions:questions, course:course});
   });
 };
 
