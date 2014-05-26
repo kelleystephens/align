@@ -3,12 +3,10 @@ extends ../shared/template
 block content
   h1= title
 
-      //- a.glyphicon.glyphicon-trash.nuke(href='#')
-
   div
     button.btn.btn-primary#add Add Question
 
-  form#test#testQuestion(action='/creators/courses/#{courseId}/test', method='POST')
+  form#testQuestion(action='/creators/courses/#{courseId}/test', method='POST')
     button.btn.btn-primary#save Save Test
     div.question(data-num=1)
       .input-group
@@ -34,7 +32,7 @@ block content
             option(value='b') B
             option(value='c') C
             option(value='d') D
-      button.glyphicon.glyphicon-trash.nuke(style='display: inline-block;') X
+      button.glyphicon.glyphicon-trash.nuke(style='display: inline-block;')
 
 block scripts
   script(src='/js/es6/compiled/createtest.js')
